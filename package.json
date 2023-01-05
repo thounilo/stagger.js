@@ -1,0 +1,9 @@
+{
+    "name": "stagger.js",
+    "scripts": {
+        "build": "esbuild index.js --outfile=dist/lib.iife.js --bundle",
+        "build:minify": "esbuild index.js --outfile=dist/lib.iife.min.js --bundle --minify",
+        "build:all": "npm run build & npm run build:minify"
+
+    }
+}
