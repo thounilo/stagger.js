@@ -1,9 +1,17 @@
 {
     "name": "stagger.js",
+    "type": "module",
     "scripts": {
         "build": "esbuild index.js --outfile=dist/lib.iife.js --bundle",
         "build:minify": "esbuild index.js --outfile=dist/lib.iife.min.js --bundle --minify",
         "build:all": "npm run build & npm run build:minify"
-
+    },
+    "exports": {
+        "import": "./dist/lib.iife.js",
+        "require": "./dist/lib.iife.js",
+        "default": "./dist/lib.iife.js"
+    },
+    "dependencies": {
+        "esbuild": "^0.12.17"
     }
 }
