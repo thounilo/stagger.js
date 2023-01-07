@@ -13,29 +13,23 @@ export const isBrowser = () => {
  * 
  * Returns an `Array` of elements from a CSS selector
  * @param {string} selector - Any valid CSS selector
- * @returns {Array<HTMLElement>|Array<any>}    - Always array of Elements or empty array
+ * @returns {Array<HTMLElement>} - Always array of HTMLElements or empty array
  * 
  */
-export const querySelector = (selector) =>  Array.from(document.querySelectorAll(selector) ?? [])
+export const querySelector = (selector) =>  Array.from(document.querySelectorAll(selector) || [])
 
 /**
- * 
  * Simplify looping over a NodeList or HTMLCollection
- * @param {NodeList|HTMLCollection|Array<any>} iterable 
+ * @type {import('./types.js').each} iterable 
  * @returns 
- * 
 */
 export function each(iterable, callback) {
 
-    if (!iterable) return
+    if (!iterable) return 
 
-    if (iterable instanceof NodeList || iterable instanceof HTMLCollection) {
-        iterable = Array.from(iterable)
+    if (iterable instanceof NodeList || iterable instanceof HTMLCollection || iterable instanceof Array) {
+        [...iterable].forEach((el, i) => callback(el, i))
     }
-
-    iterable.forEach((el, i) => callback(el, i))
-
-    return iterable
 }
 /**
  * 

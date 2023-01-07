@@ -1,4 +1,4 @@
-import { addClass, dataset, isIntersecting, removeClass, shouldShowOnce, each , querySelector} from './stuff'
+import { addClass, dataset, isIntersecting, removeClass, shouldShowOnce, each, querySelector } from './stuff.js '
 
 function showAndDestroyAppear(entry, observer) {
     addClass(
@@ -19,10 +19,6 @@ function showAndDestroyAppear(entry, observer) {
  * @param {IntersectionObserverEntry} entry 
  */
 export function handleAppear(entry, observer) {
-
-    // isIntersecting(entry)
-    //     ? console.log('%cEntering viewport: ' + `io-animation ${dataset(entry, 'ioAppear')}`, "color: skyblue")
-    //     : console.log('%cLeaving viewport: ' + `io-animation ${dataset(entry, 'ioAppear')}`, "color: tomato")
 
     if (!isIntersecting(entry) && !shouldShowOnce(entry)) {
         removeClass(entry.target, 'io-animation', dataset(entry, 'ioAppear'))
