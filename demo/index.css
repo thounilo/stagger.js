@@ -1,0 +1,39 @@
+[data-io-stagger], [data-io-appear] {
+    --animation-name: none;
+    --animation-duration: 800ms;
+    --animation-fill-mode: forwards;
+    --animation-direction: normal;
+    --animation-stagger-delay: 25ms;
+    --animation-appear-delay: 250ms;
+    --animation-timing-function: cubic-bezier(0.36, 0, 0.66, -0.56);
+  }
+  
+  .io-animation {
+    animation: var(--animation-name);
+    animation-duration: var(--animation-duration);
+    animation-fill-mode: var(--animation-fill-mode);
+    animation-direction: var(--animation-direction);
+  }
+  
+  .io-stagger {
+    --animation-stagger-delay: 100ms;
+    opacity: 1;
+    transition: opacity var(--animation-duration, 800ms);
+  }
+  
+  .io-stagger > * {
+    animation-delay: calc(var(--animation-stagger-delay) * var(--io-index, 0));
+    animation-play-state: paused;
+  }
+  
+  .io-stagger-play > * {
+    animation-play-state: running;
+  }
+  
+  .io-stagger-pause > * {
+    animation-play-state: running;
+  }
+  
+  .hide-initial {
+    opacity: 0;
+  }

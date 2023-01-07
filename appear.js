@@ -1,4 +1,4 @@
-import { addClass, dataset, isIntersecting, removeClass, shouldShowOnce, each, querySelector } from './stuff.js '
+import { addClass, dataset, isIntersecting, removeClass, shouldShowOnce, each, querySelector } from './stuff.js'
 
 function showAndDestroyAppear(entry, observer) {
     addClass(

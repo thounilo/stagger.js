@@ -9,7 +9,6 @@
 }
 
 .io-animation {
-  
   animation: var(--animation-name);
   animation-duration: var(--animation-duration);
   animation-fill-mode: var(--animation-fill-mode);
